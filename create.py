@@ -1,2 +1,2 @@
-from app import *
+from models import db
 db.create_all()
