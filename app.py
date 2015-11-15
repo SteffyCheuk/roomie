@@ -3,6 +3,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 from flask_sqlalchemy import SQLAlchemy
 from models import *
 import json
+from jinja2 import Template
+import jinja2
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres@localhost/roomie'
@@ -10,7 +12,7 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def hello():
-  return "Hello World!"
+  return render_template('./layout.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
